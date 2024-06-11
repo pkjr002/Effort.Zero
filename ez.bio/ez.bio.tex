@@ -1,0 +1,104 @@
+\documentclass[12pt, a4paper]{article}
+
+% Essential packages
+\usepackage{mathptmx}                   % Use Times New Roman font
+\usepackage{url}                        % For URLs
+\usepackage{tikz}                       % For drawing lines
+\usepackage{xcolor}                     % For color text
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+% \usepackage{hyperref}                   % For hyperlinks
+\usepackage{enumitem}                   % For customizing lists
+\usepackage{fontawesome}                % For icons
+\usepackage{tabularx}                   % For the table layout
+\usepackage{lipsum}                     % For dummy text
+\usepackage{mwe}                        % For dummy images
+\usepackage{graphicx}                   % For including graphics
+\usepackage{setspace}                   % For setting line spacing
+\usepackage{indentfirst}                % Indent first paragraph after section heading
+\usepackage{fancyhdr}                   % For custom headers and footers
+\usepackage{titlesec}                   % For section title spacing
+\usepackage{ifthen}                     % For conditional statements
+
+% Page layout settings
+\usepackage[left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm, footskip=.5cm, headheight=0cm]{geometry}
+\setlength{\footskip}{14.5pt}           % Adjust footskip as suggested
+\setlength{\headheight}{14.49998pt}
+
+% Define variables
+\newcommand{\name}{John Doe}
+\newcommand{\nametitle}{Ph.D.}
+\newcommand{\githubUsername}{johndoe}
+\newcommand{\githubURL}{https://github.com/johndoe}
+\newcommand{\email}{johndoe@example.com}
+\newcommand{\jobtitleURL}{https://johndoe.com}
+\newcommand{\jobtitle}{Researcher}
+\newcommand{\addressLineOne}{123 Main St}
+\newcommand{\addressLineTwo}{Old York, OY 10001}
+
+% Custom header/footer settings
+\pagestyle{fancy}
+\fancyhf{}                              % Clear all header and footer fields
+
+\fancyhead[C]{                          % Custom header content
+  \begin{tabularx}{\textwidth}{X l}
+    \begin{tabular}[t]{@{}l@{}}
+      \MakeUppercase{\name}, \textit{\nametitle} \\[0.4em]
+      {\large \faGithub} \hspace{1em} \href{\githubURL}{github.com/\githubUsername} \\[0.25em]
+      {\large \faEnvelope} \hspace{1em} \href{mailto:\email}{\email} \\
+    \end{tabular} &
+    \begin{tabular}[t]{@{}ll@{}}
+      \href{\jobtitleURL}{\jobtitle} \\[0.4em]
+      {\large \faMapMarker} \hspace{0.25em} \addressLineOne \\
+                   \hspace{1em} \addressLineTwo\\
+    \end{tabular}
+  \end{tabularx}
+}
+
+\renewcommand{\headrulewidth}{0pt}      % Remove the header line
+\renewcommand{\footrulewidth}{0pt}      % Remove the footer line (optional)
+
+% Title/section settings
+\titlespacing*{\section}{0pt}{10pt plus 2pt minus 2pt}{10pt plus 2pt minus 2pt}
+
+% Paragraph settings
+\setstretch{1}                          % Set line spacing
+\setlength{\parskip}{10pt}              % Set space between paragraphs
+\setlength{\parindent}{40pt}            % Set paragraph indentation
+
+% Custom command for a horizontal line
+\newcommand{\myline}{
+  \noindent
+  \begin{minipage}{\textwidth}
+    \vskip 1cm
+    \begin{tikzpicture}
+      \draw[line width=1pt, draw=black] (0,0) -- (\textwidth-1,0);
+    \end{tikzpicture}
+  \end{minipage}
+  \smallskip
+}
+
+\begin{document}
+
+% Horizontal line
+\myline
+
+\begin{center}
+  BIO:
+\end{center}
+
+\bigskip
+
+% Main text
+\lipsum[1]
+
+\vskip 3cm
+
+% Head-shot
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{example-image}
+  \caption{head-shot \textbf{Dr./Mr. \name}}
+  \label{fig:image_label}
+\end{figure}
+
+\end{document}
